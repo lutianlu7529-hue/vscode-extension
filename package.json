@@ -2,9 +2,9 @@
   "name": "cl-first-vscode-extension",
   "displayName": "cl-first-vscode-extension",
   "description": "hello vscode extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
-    "vscode": "^1.105.0"
+    "vscode": "^1.100.0"
   },
   "categories": [
     "Other"
