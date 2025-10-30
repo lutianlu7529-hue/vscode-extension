@@ -2,22 +2,47 @@
   "name": "cl-first-vscode-extension",
   "displayName": "cl-first-vscode-extension",
   "description": "hello vscode extension",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:cl-first-vscode-extension.createHPComponent",
+    "onView:cl-extension-view"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "cl-first-vscode-extension.helloVSCode",
-        "title": "Hello World"
+        "command": "cl-first-vscode-extension.createHPComponent",
+        "title": "Create HP Component"
+      },
+      {
+        "command": "cl-extension-view.viewResponse",
+        "title": "View Response Details"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cl-extension-sidebar",
+          "title": "CL Extension",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cl-extension-sidebar": [
+        {
+          "id": "cl-extension-view",
+          "name": "CL Extension View",
+          "type": "webview"
+        }
+      ]
+    }
   },
   "publisher": "chenglu",
   "repository": {
@@ -37,17 +62,20 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.100.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
+    "@types/vscode": "^1.100.0",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
-    "eslint": "^9.36.0",
-    "typescript": "^5.9.3",
-    "ts-loader": "^9.5.4",
-    "webpack": "^5.102.0",
-    "webpack-cli": "^6.0.1",
     "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.36.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }
